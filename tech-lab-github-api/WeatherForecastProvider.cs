@@ -15,7 +15,7 @@ namespace tech_lab_github_api
         public IEnumerable<WeatherForecast> GetForecast()
         {
             var rng = new Random();
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            return Enumerable.Range(1, 15).Select(index => new WeatherForecast
             {
                 Date = DateTime.Now.AddDays(index),
                 TemperatureC = rng.Next(-20, 55),
