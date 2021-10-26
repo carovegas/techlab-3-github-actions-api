@@ -40,6 +40,13 @@ jobs:
           region: "West Europe"
           template: ./deployment/resource-group-template.json
           parameters: ./deployment/resource-group-parameters.json
+      - name: Deploy ARM Web App
+        uses: Azure/arm-deploy@v1
+        with:
+          scope: resourcegroup
+          resourceGroupName: rg-techlab3
+          template: ./deployment/web-app-template.json
+          parameters: ./deployment/web-app-parameters.json
       - name: 'Deploy to Azure WebApp'
         uses: azure/webapps-deploy@v2
         with:
