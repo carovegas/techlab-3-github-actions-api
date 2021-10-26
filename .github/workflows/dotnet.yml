@@ -29,9 +29,19 @@ jobs:
         run: dotnet test --no-build --verbosity normal
       - name: Publish
         run: dotnet publish --configuration Release --output 'tech-lab-api-webapp'
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
       - name: 'Deploy to Azure WebApp'
         uses: azure/webapps-deploy@v2
         with:
           app-name: ${{ env.AZURE_WEBAPP_NAME }}
           publish-profile: ${{ secrets.MY_SECRET_PUBLISH_PROFILE }}
           package: '${{ env.WORKING_DIRECTORY }}/tech-lab-api-webapp'
+      - name: Deploy Azure Resource Manager (ARM) Template
+        uses: Azure/arm-deploy@v1
+        with:
+          scope: resourcegroup
+          template: deployment/template.json
+          parameters: rgName=rg-techlab3 rgLocation="West Europe"
