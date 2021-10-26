@@ -37,6 +37,7 @@ jobs:
         uses: Azure/arm-deploy@v1
         with:
           scope: subscription
+          region: "West Europe"
           template: ./deployment/template.json
           parameters: ./deployment/parameters.json
       - name: 'Deploy to Azure WebApp'
