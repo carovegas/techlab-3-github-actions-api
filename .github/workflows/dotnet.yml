@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 env:
-  AZURE_WEBAPP_NAME: techlab-3-github-api
+  AZURE_WEBAPP_NAME: tech-lab-3-api
   WORKING_DIRECTORY: .
 
 jobs:
@@ -51,6 +51,5 @@ jobs:
         uses: azure/webapps-deploy@v2
         with:
           app-name: ${{ env.AZURE_WEBAPP_NAME }}
-          publish-profile: ${{ secrets.MY_SECRET_PUBLISH_PROFILE }}
           package: '${{ env.WORKING_DIRECTORY }}/tech-lab-api-webapp'
 
