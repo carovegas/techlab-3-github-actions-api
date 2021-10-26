@@ -39,4 +39,5 @@ jobs:
         uses: Azure/arm-deploy@v1
         with:
           scope: resourcegroup
-          template: template.json
+          template: deployment/template.json
+          parameters: rgName=rg-techlab3 rgLocation="West Europe"
