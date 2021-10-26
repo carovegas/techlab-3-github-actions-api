@@ -36,10 +36,9 @@ jobs:
       - name: Deploy Azure Resource Manager (ARM) Template
         uses: Azure/arm-deploy@v1
         with:
-          scope: resourcegroup
+          scope: subscription
           template: ./deployment/template.json
           parameters: ./deployment/parameters.json
-          resourceGroupName: rg-techlab3
       - name: 'Deploy to Azure WebApp'
         uses: azure/webapps-deploy@v2
         with:
