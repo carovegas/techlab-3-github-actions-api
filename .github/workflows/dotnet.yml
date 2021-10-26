@@ -39,6 +39,7 @@ jobs:
           scope: resourcegroup
           template: ./deployment/template.json
           parameters: ./deployment/parameters.json
+          resourceGroupName: rg-techlab3
       - name: 'Deploy to Azure WebApp'
         uses: azure/webapps-deploy@v2
         with:
