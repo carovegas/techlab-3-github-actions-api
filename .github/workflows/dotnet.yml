@@ -37,8 +37,8 @@ jobs:
         uses: Azure/arm-deploy@v1
         with:
           scope: resourcegroup
-          template: deployment/template.json
-          parameters: deployment/parameters.json
+          template: ./deployment/template.json
+          parameters: ./deployment/parameters.json
       - name: 'Deploy to Azure WebApp'
         uses: azure/webapps-deploy@v2
         with:
